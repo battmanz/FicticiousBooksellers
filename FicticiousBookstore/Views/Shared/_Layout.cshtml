@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="#" id="logo"><img src="~/Images/logo.png" alt="Ficticious Booksellers" width="263" height="80" /></a>
+        </h1>
+        <nav>
+            @{
+                var currentController = ViewContext.RouteData.Values["controller"] as string ?? "Home";
+                var currentAction = ViewContext.RouteData.Values["action"] as string ?? "Index";
+                var currentPage = (currentController + "-" + currentAction).ToLower();
+            }
+            <ul>
+                <li class="@(currentPage == "home-index" ? "selected" : "")">@Html.ActionLink("Home", "Index", "Home")</li><!--
+                --><li class="@(currentPage == "books-index" ? "selected" : "")"><a href="#">Books</a></li><!--
+                --><li class="@(currentPage == "home-about" ? "selected" : "")">@Html.ActionLink("About", "About", "Home")</li><!--
+                --><li class="@(currentPage == "home-contact" ? "selected" : "")">@Html.ActionLink("Contact", "Contact", "Home")</li>
+            </ul>
+        </nav>
+    </header>
+    <div id="hero">
+        @RenderSection("hero", required: false)
+    </div>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
