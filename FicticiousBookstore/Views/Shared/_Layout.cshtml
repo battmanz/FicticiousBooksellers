@@ -20,7 +20,7 @@
                 }
                 <ul>
                     <li class="@(currentPage == "home-index" ? "selected" : "")">@Html.ActionLink("Home", "Index", "Home")</li><!--
-                    --><li class="@(currentPage == "books-index" ? "selected" : "")"><a href="#">Books</a></li><!--
+                    --><li class="@(currentPage.StartsWith("book-") ? "selected" : "")">@Html.ActionLink("Books", "Index", "Book")</li><!--
                     --><li class="@(currentPage == "home-about" ? "selected" : "")">@Html.ActionLink("About", "About", "Home")</li><!--
                     --><li class="@(currentPage == "home-contact" ? "selected" : "")">@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
@@ -38,7 +38,7 @@
         </div>
     </footer>
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/jqueryval")*@
     @RenderSection("scripts", required: false)
 </body>
 </html>

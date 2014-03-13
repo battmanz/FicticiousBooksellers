@@ -134,6 +134,16 @@ main {
     max-width: 800px;
 }
 
+.table {
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border: 1px dashed #666;
+    padding: 5px 7px;
+}
+
 /* styles for validation helpers */
 .field-validation-error {
     color: #b94a48;

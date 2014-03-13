@@ -1,0 +1,5 @@
+﻿@model System.Web.HttpPostedFileBase
+
+@{ var propertyName = ViewData.TemplateInfo.HtmlFieldPrefix; }
+
+<input type="file" id="@propertyName" name="@propertyName" class="text-box single-line" data-val="true" data-val-required="The @propertyName field is required." />
